@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+	AccessFileName .htaccess
+	CustomLog /srv/www/oneocean-blog.local.dev/logs/access.log combined
+	DocumentRoot /srv/www/oneocean-blog.local.dev/public_html/
+	ErrorLog /srv/www/oneocean-blog.local.dev/logs/error.log
+	ServerAdmin developer@tactica.ca
+	ServerName oneocean-blog.local.dev
+</VirtualHost>
+<Directory /srv/www/oneocean-blog.local.dev/public_html/>
+	AllowOverride All
+</Directory>
+<Directory /srv/www/oneocean-blog.local.dev/public_html/mt>
+  AddHandler cgi-script cgi pl
+	Options ExecCGI Indexes
+</Directory>
