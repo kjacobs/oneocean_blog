@@ -1,0 +1,99 @@
+.archive
+{
+  margin: 0 0 1em 0;
+}
+
+.entry h3
+{
+  margin-top: 9px;
+}
+
+.entry .entry-body
+{
+  margin: 0 0 1em 0;
+}
+
+.entry .entry-meta
+{
+  background-color: transparent;
+  color: #9F3;
+}
+
+.entry .entry-meta .author
+{
+  background-color: transparent;
+  color: #FFF;
+}
+
+.entry .entry-tags
+{
+  margin: 0;
+}
+
+.navigation p
+{
+  margin: 0;
+  overflow: hidden;
+  padding: 0 170px;
+  text-align: center;
+  width: 259px;
+}
+
+.navigation .next
+{
+  display: inline;
+  float: right;
+  margin: 0 -170px 0 0;
+  text-align: right;
+  width: 150px;
+}
+
+.navigation .previous
+{
+  display: inline;
+  float: left;
+  margin: 0 0 0 -170px;
+  text-align: left;
+  width: 150px;
+}
+
+#c1 .intro img
+{
+  display: block;
+  margin: 0 -10px;
+}
+
+#c1 .navigation .common-box-content
+{
+  padding: 0 20px;
+}
+
+#c2 .widget
+{
+  margin: 0 0 1em 0;
+}
+
+#c2 .widget-search
+{
+  overflow: hidden;
+  width: 100%;
+}
+
+#c2 .widget-search .buttons
+{
+  float: right;
+  width: 100px;
+}
+
+#c2 .widget-search .inputs
+{
+  float: left;
+  margin-top: 2px;
+  width: 150px;
+}
+
+#c2 .widget-search .inputs .text
+{
+  width: 140px;
+}
+

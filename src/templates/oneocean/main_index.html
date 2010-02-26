@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <mt:Include module="HTML Head">
+    <link href="<mt:Link template='rsd'>" rel="EditURI" title="RSD" type="application/rsd+xml" />
+    <title><mt:BlogName encode_html="1" /></title>
+  </head>
+  <body class="mt-main-index <mt:Var name='page_layout'>">
+    <div id="body-top">
+      <mt:Include module="CBC Header" />
+      <div id="wrapper">
+        <div id="body">
+          <mt:Include module="Banner Header" />
+          <div id="content">
+            <div id="main">
+              <div id="c1">
+                <div class="common-box">
+                  <div class="common-box-top"></div>
+                  <div class="common-box-content">
+                    <h2 class="series blog">
+                      <span>The Series: Blog</span>
+                    </h2>
+                    <div class="intro">
+                      <mt:Include module="Blog Intro" />
+                    </div>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+                <mt:Entries>
+                  <mt:Include module="Entry Summary" />
+                </mt:Entries>
+              </div>
+              <div id="c2"><mt:Include module="Sidebar" /></div>
+            </div>
+          </div>
+          <mt:Include module="Banner Footer" />
+        </div>
+      </div>
+      <mt:Include module="CBC Footer">
+    </div>
+  </body>
+</html>

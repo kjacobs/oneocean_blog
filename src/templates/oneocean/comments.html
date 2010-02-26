@@ -1,0 +1,94 @@
+<mt:IfCommentsActive>
+  <div class="comment-box">
+    <mt:Comments lastn="$comments_per_page" sort_order="ascend">
+      <mt:CommentsHeader>
+        <div class="comments-heading">
+          <h3>Comments (<mt:EntryCommentCount />)</h3>
+          <div class="background"></div>
+        </div>
+        <mt:If tag="EntryCommentCount" gt="$comments_per_page">
+          <p class="navigation">
+            <a class="previous" href="#" id="top-prev-comments-link" title="Older Comments">Older Comments<a>
+            <a class="next" href="#" id="top-next-comments-link" title="Newer Comments">Newer Comments</a>
+          </p>
+        </mt:If>
+        <ul class="comments" id="comments-list">
+      </mt:CommentsHeader>
+          <mt:Include module="Comment Detail" />
+      <mt:CommentsFooter>
+        </ul>
+        <mt:If tag="EntryCommentCount" gt="$comments_per_page">
+          <p class="navigation">
+            <a class="previous" href="#" id="prev-comments-link" title="Older Comments">Older Comments<a>
+            <a class="next" href="#" id="next-comments-link" title="Newer Comments">Newer Comments</a>
+          </p>
+        </mt:If>
+      </mt:CommentsFooter>
+    </mt:Comments>
+    <mt:IfCommentsAccepted>
+      <ul class="comments form" id="comments-form">
+        <li class="comment-row">
+          <div class="author">
+          </div>
+          <div class="content">
+            <form action="<mt:CGIPath><mt:CommentScript>" class="comment" method="post" onsubmit="return mtCommentOnSubmit(this)">
+              <div>
+                <input name="__lang" type="hidden" value="<mt:BlogLanguage>" />
+                <input name="armor" type="hidden" value="1" />
+                <input name="entry_id" type="hidden" value="<mt:EntryID>" />
+                <input name="parent_id" type="hidden" value="<mt:CommentParentID escape='html'>" id="comment-parent-id" />
+                <input name="preview" type="hidden" value="" />
+                <input name="sid" type="hidden" value="" />
+                <input name="static" type="hidden" value="1" />
+              </div>
+              <fieldset class="inputs">
+                <ol>
+                  <li id="comment-author-input" class="text required">
+                    <label for="comment-author">Name:</label>
+                    <input id="comment-author" name="author" value="" onfocus="mtCommentFormOnFocus()" />
+                  </li>
+                  <li id="comment-email-input" class="text required">
+                    <label for="comment-email">Email address:</label>
+                    <input id="comment-email" name="email" value="" onfocus="mtCommentFormOnFocus()" />
+                  </li>
+                  <li id="comment-url-input" class="text">
+                    <label for="comment-url">URL:</label>
+                    <input id="comment-url" name="url" value="" onfocus="mtCommentFormOnFocus()" />
+                  </li>
+                  <li id="comment-bake-cookie-input" class="checkbox">
+                    <label for="comment-bake-cookie">
+                      <input id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" type="checkbox" value="1" /> Remember personal info?
+                    </label>
+                  </li>
+                  <li id="comment-reply-input" class="checkbox" style="display:none">
+                    <label for="comment-reply">
+                      <input id="comment-reply" name="comment_reply" type="checkbox" value="" onclick="mtSetCommentParentID()" />
+                    </label>
+                  </li>
+                  <li id="comment-captcha-input" class="captcha"></li>
+                  <li id="comment-text-input" class="text required">
+                    <label for="comment-text">Comment: <mt:IfAllowCommentHTML>(you may use HTML tags for style)</mt:IfAllowCommentHTML></label>
+                    <textarea id="comment-text" name="text" onfocus="mtCommentFormOnFocus()" rows="20"></textarea>
+                  </li>
+                </ol>
+              </fieldset>
+              <fieldset class="buttons">
+                <ol class="commit">
+                  <li class="commit"><input accesskey="s" class="submit" id="comment-submit" name="post" type="submit" value="Post Comment" /></li>
+                  <li class="commit"><input accesskey="v" class="submit" id="comment-preview" name="preview_button" type="submit" value="Preview" onclick="this.form.preview.value='1';" />
+                </ol>
+              </fieldset>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <script type="text/javascript">
+        //<![CDATA[
+          mtAttachEvent("load", mtEntryOnLoad);
+          mtAttachEvent("unload", mtEntryOnUnload);
+        //]]>
+      </script>
+    </mt:IfCommentsAccepted>
+  </div>
+</mt:IfCommentsActive>
+

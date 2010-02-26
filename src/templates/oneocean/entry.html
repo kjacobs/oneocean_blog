@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <mt:Include module="HTML Head">
+    <link href="<mt:Link template='rsd'>" rel="EditURI" title="RSD" type="application/rsd+xml" />
+    <mt:EntryNext><link href="<mt:EntryPermalink>" rel="next bookmark" title="<mt:EntryTitle encode_html='1'>" /></mt:EntryNext>
+    <mt:EntryPrevious><link href="<mt:EntryPermalink>" rel="prev bookmark" title="<mt:EntryTitle encode_html='1'>" /></mt:EntryPrevious>
+    <mt:EntryTrackbackData />
+    <mt:If tag="EntryCommentCount" gt="$comments_per_page">
+	    <script type="text/javascript">
+	      //<![CDATA[
+          MT.commentsPerPage = <mt:Var name="comments_per_page">;
+          MT.commentIds = [<mt:Comments sort_order="ascend" glue=","><mt:CommentID></mt:Comments>];
+          MT.entryCommentCount = <mt:EntryCommentCount>;
+          MT.entryID = <mt:EntryID>;
+	      //]]>
+	    </script>
+	  </mt:If>
+    <title><mt:EntryTitle encode_html="1" /> - <mt:BlogName encode_html="1" /></title>
+  </head>
+  <body class="mt-entry-archive <mt:Var name='page_layout'>">
+    <div id="body-top">
+      <mt:Include module="CBC Header" />
+      <div id="wrapper">
+        <div id="body">
+          <mt:Include module="Banner Header" />
+          <div id="content">
+            <div id="main">
+              <div id="c1">
+                <div class="common-box entry">
+                  <div class="common-box-top"></div>
+                  <div class="common-box-content">
+                    <h2 class="series blog">
+                      <span>The Series: Blog</span>
+                    </h2>
+                    <h3><mt:EntryTitle /></h3>
+                    <p class="entry-meta">
+                      <span class="entry-published">
+                        <abbr class="published" title="<mt:EntryDate format_name='iso8601'>"><mt:EntryDate format="%x %X" /></abbr>
+                        <mt:If tag="EntryAuthorDisplayName"> by <span class="vcard author"><mt:EntryAuthorLink show_hcard="1" /></span></mt:If>
+                      </span>
+                      <mt:Unless name="hide_counts" eq="1">
+                        <mt:IfCommentsActive>, <span class="entry-comments"><a href="<mt:EntryPermalink>#comments"><mt:EntryCommentCount singular="1 comment" plural="# comments" none="No comments" /></a></span></mt:IfCommentsActive>
+                        <mt:IfPingsActive>, <span class="entry-trackbacks"><a href="<mt:EntryPermalink>#trackbacks"><mt:EntryTrackbackCount singular="1 trackback" plural="# trackbacks" none="No trackbacks" /></a></span></mt:IfPingsActive>
+                      </mt:Unless>
+                    </p>
+                    <mt:If tag="EntryBody">
+                      <div class="entry-body">
+                        <mt:EntryBody />
+                        <mt:If tag="EntryMore" convert_breaks="0">
+                          <mt:EntryMore />
+                        </mt:If>
+                      </div>
+                    </mt:If>
+                    <mt:IfArchiveTypeEnabled archive_type="Category">
+                      <mt:If tag="EntryCategories">
+                        <p class="entry-meta entry-categories">Categories: <mt:EntryCategories glue=", "><a href="<mt:CategoryArchiveLink>" rel="tag"><mt:CategoryLabel /></a></mt:EntryCategories></p>
+                      </mt:If>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:EntryIfTagged>
+                      <p class="entry-meta entry-tags">Tags: <mt:EntryTags glue=", "><a href="<mt:TagSearchLink encode_html='1'>" rel="tag"><mt:TagName /></a></mt:EntryTags></p>
+                    </mt:EntryIfTagged>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+                <mt:Include module="Trackbacks" />
+                <mt:Include module="Comments" />
+                <div class="common-box navigation">
+                  <div class="common-box-top"></div>
+                  <div class="common-box-content">
+                    <p>
+                      <mt:EntryPrevious><a class="previous" href="<mt:EntryPermalink>"><mt:EntryTitle /></a></mt:EntryPrevious>
+                      <mt:EntryNext><a class="next" href="<mt:EntryPermaLink>"><mt:EntryTitle /></a></mt:EntryNext>
+                      <a href="<mt:Link template='main_index'>"><__trans phrase="Main Index" /></a> | <a href="<mt:Link template='archive_index'>"><__trans phrase="Archives" /></a>
+                    </p>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+              </div>
+              <div id="c2"><mt:Include module="Sidebar" /></div>
+            </div>
+          </div>
+          <mt:Include module="Banner Footer" />
+        </div>
+      </div>
+      <mt:Include module="CBC Footer">
+    </div>
+  </body>
+</html>
+
+  

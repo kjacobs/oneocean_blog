@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <mt:Include module="HTML Head">
+    <link href="<mt:Link template='rsd'>" rel="EditURI" title="RSD" type="application/rsd+xml" />
+    <mt:If name="datebased_archive">
+        <mt:ArchiveNext><link href="<mt:ArchiveLink>" rel="next" title="<mt:ArchiveTitle encode_html='1'>" /></mt:ArchiveNext>
+        <mt:ArchivePrevious><link href="<mt:ArchiveLink>" rel="prev" title="<mt:ArchiveTitle encode_html='1'>" /></mt:ArchivePrevious>
+    </mt:If>
+    <title><mt:BlogName encode_html="1" />: <__trans phrase="[_1] Archives" params="<mt:ArchiveTitle>" /></title>
+  </head>
+  <body class="mt-archive-listing mt-<mt:Var name='archive_class'> <mt:Var name='page_layout'>">
+    <div id="body-top">
+      <mt:Include module="CBC Header" />
+      <div id="wrapper">
+        <div id="body">
+          <mt:Include module="Banner Header" />
+          <div id="content">
+            <div id="main">
+              <div id="c1">
+                <div class="common-box">
+                  <div class="common-box-top"></div>
+                  <div class="common-box-content">
+                    <h2 class="series blog">
+                      <span>The Series: Blog</span>
+                    </h2>
+                    <mt:If name="datebased_archive">
+                      <h3><__trans phrase="[_1] Archives" params="<mt:ArchiveTitle>" /></h3>
+                    <mt:Else>
+                      <h3><__trans phrase="Recently in <em>[_1]</em>" params="<mt:ArchiveTitle>" /></h3>
+                    </mt:If>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+                <mt:Unless name="datebased_archive"><mt:Var name="limit" value="auto" /></mt:Unless>
+                <mt:Entries limit="$limit">
+                  <mt:Include module="Entry Summary" />
+                </mt:Entries>
+                <div class="common-box navigation">
+                  <div class="common-box"></div>
+                  <div class="common-box-content">
+                    <p>
+                      <mt:ArchivePrevious><a class="previous" href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></mt:ArchivePrevious>
+                      <mt:ArchiveNext><a class="next" href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></mt:ArchiveNext>
+                      <a href="<mt:Link template='main_index'>"><__trans phrase="Main Index" /></a> | <a href="<mt:Link template='archive_index'>"><__trans phrase="Archives" /></a>
+                    </p>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+              </div>
+              <div id="c2"><mt:Include module="Sidebar" /></div>
+            </div>
+          </div>
+          <mt:Include module="Banner Footer" />
+        </div>
+      </div>
+      <mt:Include module="CBC Footer">
+    </div>
+  </body>
+</html>
+

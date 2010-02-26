@@ -1,0 +1,22 @@
+<li class="comment comment-row <mt:if name='__odd__'>odd<mt:else>even</mt:if><mt:IfCommenterIsEntryAuthor> comment-by-entry-author</mt:IfCommenterIsEntryAuthor>" id="entry-<mt:EntryID>">
+  <div class="background"></div>
+  <div class="author">
+    <mt:CommentAuthorIdentity />
+    <div class="name"><span class="vcard"><mt:CommentAuthorLink /></span></div>
+    <mt:IfCommentParent>
+      <__trans phrase="replied to" /> <a href="<mt:CommentParent><mt:CommentLink></mt:CommentParent>"><__trans phrase="comment from" /> <mt:CommentParent><mt:CommentAuthor></mt:CommentParent></a>
+    <mt:Else>
+      <__trans phrase="wrote" />
+    </mt:IfCommentParent>
+    <div class="date"><abbr class="published" title="<mt:CommentDate format_name='iso8601'>"><mt:CommentDate /></abbr></div>
+  </div>
+  <div class="content"><mt:CommentBody /></div>
+  <div class="tools">
+    <ul class="tools-content">
+      <mt:IfCommentsAccepted>
+        <li><mt:CommentReplyToLink></li>
+      </mt:IfCommentsAccepted>
+    </ul>
+  </div>
+</li>
+

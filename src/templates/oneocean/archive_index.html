@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <mt:Include module="HTML Head">
+    <link href="<mt:Link template='rsd'>" rel="EditURI" title="RSD" type="application/rsd+xml" />
+    <title><mt:BlogName encode_html="1" />: <__trans phrase="Archives"></title>
+  </head>
+  <body class="mt-archive-index <mt:Var name='page_layout'>">
+    <div id="body-top">
+      <mt:Include module="CBC Header" />
+      <div id="wrapper">
+        <div id="body">
+          <mt:Include module="Banner Header" />
+          <div id="content">
+            <div id="main">
+              <div id="c1">
+                <div class="common-box">
+                  <div class="common-box-top"></div>
+                  <div class="common-box-content">
+                    <h2 class="series blog">
+                      <span>The Series: Blog</span>
+                    </h2>
+                    <mt:IfArchiveTypeEnabled archive_type="Monthly">
+                      <mt:ArchiveList archive_type="Monthly">
+                        <mt:ArchiveListHeader>
+                          <h3><__trans phrase="Monthly Archives"></h3>
+                          <ul class="archive archive-monthly archive-date-based">
+                        </mt:ArchiveListHeader>
+                            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                              <div class="foreground"><a href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></div>
+                              <div class="background"></div>
+                            </li>
+                        <mt:ArchiveListFooter>
+                          </ul>
+                        </mt:ArchiveListFooter>
+                      </mt:ArchiveList>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:IfArchiveTypeEnabled archive_type="Category">
+                      <mt:If tag="TopLevelCategories">
+                        <h3><__trans phrase="Categories"></h3>
+                        <mt:TopLevelCategories>
+                          <mt:If tag="CategoryCount">
+                            <mt:SubCatIsFirst>
+                              <ul class="archive archive-category">
+                            </mt:SubCatIsFirst>
+                                <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                                  <div class="foreground"><a href="<mt:CategoryArchiveLink>" title="<mt:CategoryDescription>"><mt:CategoryLabel /> (<mt:CategoryCount />)</div>
+                                  <div class="background"></div>
+                                  <mt:SubCatsRecurse />
+                                </li>
+                            <mt:SubCatIsLast>
+                              </ul>
+                            </mt:SubCatIsLast>
+                          </mt:If>
+                        </mt:TopLevelCategories>
+                      </mt:If>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:IfArchiveTypeEnabled archive_type="Author">
+                      <mt:ArchiveList archive_type="Author">
+                        <mt:ArchiveListHeader>
+                          <h3><__trans phrase="Author Archives"></h3>
+                          <ul class="archive archive-author">
+                        </mt:ArchiveListHeader>
+                            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                              <div class="foreground"><a href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></div>
+                              <div class="background"></div>
+                            </li>
+                        <mt:ArchiveListFooter>
+                          </ul>
+                        </mt:ArchiveListFooter>
+                      </mt:ArchiveList>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:IfArchiveTypeEnabled archive_type="Category-Monthly">
+                      <mt:ArchiveList archive_type="Category-Monthly">
+                        <mt:ArchiveListHeader>
+                          <h3><__trans phrase="Category Monthly Archives"></h3>
+                          <ul class="archive archive-category-monthly">
+                        </mt:ArchiveListHeader>
+                            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                              <div class="foreground"><a href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></div>
+                              <div class="background"></div>
+                            </li>
+                        <mt:ArchiveListFooter>
+                          </ul>
+                        </mt:ArchiveListFooter>
+                      </mt:ArchiveList>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:IfArchiveTypeEnabled archive_type="Author-Monthly">
+                      <mt:ArchiveList archive_type="Author-Monthly">
+                        <mt:ArchiveListHeader>
+                          <h3><__trans phrase="Author Monthly Archives"></h3>
+                          <ul class="archive archive-author-monthly">
+                        </mt:ArchiveListHeader>
+                            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                              <div class="foreground"><a href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></div>
+                              <div class="background"></div>
+                            </li>
+                        <mt:ArchiveListFooter>
+                          </ul>
+                        </mt:ArchiveListFooter>
+                      </mt:ArchiveList>
+                    </mt:IfArchiveTypeEnabled>
+                    <mt:IfArchiveTypeEnabled archive_type="Individual">
+                      <mt:ArchiveList archive_type="Individual">
+                        <mt:ArchiveListHeader>
+                          <h3><__trans phrase="Individual Archives"></h3>
+                          <ul class="archive archive-individual archive-date-based">
+                        </mt:ArchiveListHeader>
+                            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+                              <div class="foreground"><mt:ArchiveDate format="%Y.%m.%d" />: <a href="<mt:ArchiveLink>"><mt:ArchiveTitle /></a></div>
+                              <div class="background"></div>
+                            </li>
+                        <mt:ArchiveListFooter>
+                          </ul>
+                        </mt:ArchiveListFooter>
+                      </mt:ArchiveList>
+                    </mt:IfArchiveTypeEnabled>
+                  </div>
+                  <div class="common-box-bottom"></div>
+                </div>
+              </div>
+              <div id="c2"><mt:Include module="Sidebar" /></div>
+            </div>
+          </div>
+          <mt:Include module="Banner Footer" />
+        </div>
+      </div>
+      <mt:Include module="CBC Footer">
+    </div>
+  </body>
+</html>
+
+
+
