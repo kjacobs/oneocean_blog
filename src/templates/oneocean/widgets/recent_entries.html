@@ -1,0 +1,20 @@
+<mt:If tag="BlogEntryCount">
+  <mt:Entries lastn="10">
+    <mt:EntriesHeader>
+      <div class="common-box recent-entries">
+        <div class="common-box-top"><h3>Recent Entries</h3></div>
+        <div class="common-box-content">
+          <ul>
+    </mt:EntriesHeader>
+            <li class="row <mt:if name='__odd__'>odd<mt:else>even</mt:if>">
+              <div class="background"></div>
+              <div class="foreground"><a href="<mt:EntryPermalink>"><mt:EntryTitle /></a></div>
+            </li>
+    <mt:EntriesFooter>
+          </ul>
+        </div>
+        <div class="common-box-bottom"></div>
+      </div>
+    </mt:EntriesFooter>
+  </mt:Entries>
+</mt:If>

@@ -1,36 +1,42 @@
-<div class="widget widget-search">
-  <h3>Search</h3>
-  <form action="<mt:CGIPath><mt:SearchScript>" class="formtastic" method="get">
-    <fieldset class="inputs">
-      <ol>
-        <li class="text required" id="search_input"><input class="text" id="search" name="search" type="text" value="<mt:SearchString>" /></li>
-      </ol>
-    </fieldset>
-    <fieldset class="buttons">
-      <ol>
-        <li class="commit small"><input class="search" type="submit" value="Search" /></li>
-      </ol>
-    </fieldset>
-    <div>
-      <mt:If name="search_results">
-        <input name="IncludeBlogs" type="hidden" value="<mt:SearchIncludeBlogs>" />
-      <mt:Else>
-        <input name="IncludeBlogs" type="hidden" value="<mt:BlogID>" />
-      </mt:If>
-      <input name="limit" type="hidden" value="<mt:SearchMaxResults>" />
+<div class="common-box blog">
+  <div class="common-box-top"></div>
+  <div class="common-box-content">
+    <div class="widget widget-search">
+      <h3>Search</h3>
+      <form action="<mt:CGIPath><mt:SearchScript>" class="formtastic" method="get">
+        <fieldset class="inputs">
+          <ol>
+            <li class="text required" id="search_input"><input class="text" id="search" name="search" type="text" value="<mt:SearchString>" /></li>
+          </ol>
+        </fieldset>
+        <fieldset class="buttons">
+          <ol>
+            <li class="commit small"><input class="search" type="submit" value="Search" /></li>
+          </ol>
+        </fieldset>
+        <div>
+          <mt:If name="search_results">
+            <input name="IncludeBlogs" type="hidden" value="<mt:SearchIncludeBlogs>" />
+          <mt:Else>
+            <input name="IncludeBlogs" type="hidden" value="<mt:BlogID>" />
+          </mt:If>
+          <input name="limit" type="hidden" value="<mt:SearchMaxResults>" />
+        </div>
+      </form>
     </div>
-  </form>
+    <mt:If name="search_results">
+      <mt:IfTagSearch>
+        <div class="widget widget-tags">
+          <h3 class="widget-header">Tags</h3>
+          <ul>
+            <mt:Tags>
+              <li><a href="<mt:TagSearchLink encode_html='1'>"><mt:TagName /> (<mt:TagCount />)</a></li>
+            </mt:Tags>
+          </ul>
+        </div>
+      </mt:IfTagSearch>
+    </mt:If>
+  </div>
+  <div class="common-box-bottom"></div>
 </div>
-<mt:If name="search_results">
-  <mt:IfTagSearch>
-    <div class="widget widget-tags">
-      <h3 class="widget-header">Tags</h3>
-      <ul>
-        <mt:Tags>
-          <li><a href="<mt:TagSearchLink encode_html='1'>"><mt:TagName /> (<mt:TagCount />)</a></li>
-        </mt:Tags>
-      </ul>
-    </div>
-  </mt:IfTagSearch>
-</mt:If>
 
