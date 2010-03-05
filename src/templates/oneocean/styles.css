@@ -30,6 +30,11 @@
   margin: 0;
 }
 
+.feature-box h3.sarika
+{
+  background-image: url("<mt:BlogUrl />/pictures/title-blog.png");
+}
+
 .navigation p
 {
   margin: 0;
@@ -57,15 +62,19 @@
   width: 150px;
 }
 
-#c1 .intro img
+#c1 .feature-box
 {
-  display: block;
-  margin: 0 -10px;
+  width: 620px;
 }
 
 #c1 .navigation .common-box-content
 {
   padding: 0 20px;
+}
+
+#c2 .recent-entries .common-box-content
+{
+  padding-top: 0;
 }
 
 #c2 .widget
